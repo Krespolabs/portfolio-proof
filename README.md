@@ -1,29 +1,48 @@
 # Portfolio Proof — Samson Onuh
 
-A public home for verifiable portfolio evidence from Krespo Labs: case studies, demos, screenshots, and links to the work behind each project.
+An evidence-first static portfolio for Krespo Labs. This review draft adds an Astro website and a clearly fictional garden-care business demo. It does not claim client results or production readiness.
 
-## Current status
+## Local development
 
-This repository is a starting structure for future evidence. No case studies, client results, performance metrics, or production-readiness claims are presented as verified here yet.
+Requires Node.js 22.12+ (or a supported newer LTS version) and npm.
 
-## Project sources
+```sh
+npm ci
+npm run dev
+```
 
-- [Lovinex Web](https://github.com/Krespolabs/Lovinex) — Next.js and TypeScript dating-web interface in development.
-- [KrespoAI Hub](https://github.com/Krespolabs/Krespoai-hub) — React/Vite application with Supabase integrations.
-- [Portfolio overview and existing PDF](https://github.com/Krespolabs/Krespolabs-) — Background and downloadable portfolio.
+The dev server listens on localhost only. Routes:
 
-These links identify source repositories; they are not proof that all advertised product features are complete.
+- `/` — portfolio, approach, and source-linked project context.
+- `/work/fern-and-field/` — fictional demo case study and limitations.
+- `/demos/fern-and-field/` — fictional garden-care service demo.
 
-## Adding proof
+```sh
+npm run check
+npm run build
+npm test
+npm run preview
+```
 
-Use the [case-study template](templates/case-study.md). For each project, create a folder such as `projects/lovinex-web/` containing a short case study and any supporting assets. Keep source code in its original repository and link to a specific commit, pull request, release, or CI run when possible.
+The build generates static files in `dist/`. No backend, database, integrations, analytics, cookies, payments, or contact collection are implemented. No environment variables are required. All CSS and SVG artwork is original to this draft; system fonts avoid remote font requests. The demo enquiry control is deliberately disabled, and there is no enquiry form or submission endpoint.
 
-A useful entry explains the problem, my contribution, what actually works, how to reproduce or view it, and any limitations. Separate demonstrated results from plans; include dates and sources for measurable outcomes. Mark screenshots and videos as demos when they use sample data.
+## Publication gate
 
-## Before publishing
+**The owner has approved publishing the reviewed feature branch and opening a public pull request only.** Existing repository history must be preserved. Merging, deploying, connecting a branch or project to hosting, and activating a preview are not authorized. Vercel may create a public preview automatically when a pull request is opened or a branch is connected; no hosting project or preview is to be created or activated as part of this review.
 
-This repository is public. Never upload passwords, API keys, access tokens, private customer data, confidential client work, or assets without permission. Redact sensitive details from screenshots and obtain permission before identifying clients or collaborators.
+Crawler exclusion (`robots.txt` and `noindex, nofollow`) is defence in depth, not access control or permission to publish. No hosting configuration or deployment workflow is included.
 
-## Connect
+## Evidence and limitations
 
-[GitHub](https://github.com/Krespolabs) · [LinkedIn](https://www.linkedin.com/in/onuh-samson-4658aa2a2/)
+Fern & Field is an invented brand for a self-directed design exercise, not a real business or client. Its service copy is fictional sample content. No real address, contact information, prices, testimonials, completed jobs, certifications, or performance claims are included.
+
+- [Lovinex Web source](https://github.com/Krespolabs/Lovinex) — dating-web interface in development; deployment and current status unverified.
+- [KrespoAI Hub source](https://github.com/Krespolabs/Krespoai-hub) — prototype interface; working integrations unverified.
+
+These are source links supplied by the existing repository, not verification of the linked products. The website does not connect to either product. No Supabase dependency or integration is used.
+
+Use the existing [case-study template](templates/case-study.md) when adding future evidence. Identify what was actually implemented, link reproducible evidence, and describe limitations. Do not imply that sample or prototype content is production functionality.
+
+## Before any future publication
+
+Never include credentials, private/customer data, confidential work, account email or phone numbers, private clips, or assets without reuse rights. Inspect both the full intended change and reachable repository history. Run the local checks above and review the owner-approved publishing scope first.
