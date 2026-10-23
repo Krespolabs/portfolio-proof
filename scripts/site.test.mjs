@@ -44,6 +44,21 @@ test('source project descriptions retain unverified-status caveats', () => {
   assert.match(home,/Working integrations are unverified/);
   assert.match(home,/prototype interface/i);
 });
+test('garden preview retains its visible CTA in its natural accessible name', () => {
+  const home=pages[0].html;
+  const preview=home.match(/<a class="garden-preview"[^>]*>/)?.[0];
+  assert.ok(preview);
+  assert.doesNotMatch(preview, /aria-label(?:ledby)?=/);
+  assert.match(home, /class="preview-cta">Explore the garden/);
+});
+test('shared header preserves desktop and mobile visible-name source', () => {
+  for (const page of pages.slice(0,2)) {
+    const header=page.html.match(/<a class="brand"[^>]*>/)?.[0];
+    assert.ok(header);
+    assert.doesNotMatch(header, /aria-label(?:ledby)?=/);
+    assert.match(page.html, /KRESPO LABS\s*<span class="brand-divider">\s*\/\s*<\/span><span class="brand-sub">PORTFOLIO<\/span>/);
+  }
+});
 test('fictional demo is explicitly labelled and enquiry is disabled', () => {
   const demo=pages[2].html;
   assert.match(demo,/fictional business/i);

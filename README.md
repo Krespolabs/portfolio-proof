@@ -24,6 +24,10 @@ npm test
 npm run preview
 ```
 
+### Full accessibility regression
+
+After building, run `npm run test:a11y` with Python Playwright and `/usr/bin/chromium` installed. It serves the build temporarily on loopback only and runs the complete default axe ruleset, without contrast-only or tag filtering, plus explicitly enables `label-content-name-mismatch`. All three routes are tested at four viewport widths, with the demo FAQs both closed and expanded. Rendered accessible-name assertions cover the shared header on the homepage and case-study page (desktop and mobile), the garden preview's visible CTA, and the demo wordmark. Failures and unresolved findings stop the check; only arrow-only colour notices are reported separately, with their colours covered by `npm run test:contrast`. Automated checks supplement, rather than replace, human accessibility review.
+
 ### Contrast regression
 
 After building, run `npm run test:contrast`. This requires Python's `playwright` package and Chromium at `/usr/bin/chromium`, as does the optional `python3 scripts/check-browser.py` UI check. The contrast runner starts its own temporary loopback-only server. It uses the development-only `axe-core` package plus WCAG sRGB calculations on rendered text at four viewport widths, with FAQs closed/open and links hovered/focused. It also measures visible decorative text and disabled control text voluntarily, checks both logo destinations, and fails on contrast violations or unresolved text-background findings. Axe's arrow-only non-text notices are reported separately and their colours are covered by the computed-style checks. No accessibility test code is included in the built website.

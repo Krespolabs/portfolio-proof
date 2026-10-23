@@ -9,7 +9,8 @@
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
     "test": "node --test scripts/site.test.mjs",
-    "test:contrast": "python3 scripts/check-contrast.py"
+    "test:contrast": "python3 scripts/check-contrast.py",
+    "test:a11y": "python3 scripts/check-accessibility.py"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.12",
