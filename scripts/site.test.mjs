@@ -51,6 +51,12 @@ test('fictional demo is explicitly labelled and enquiry is disabled', () => {
   assert.match(demo,/<button[^>]*disabled/);
   assert.ok((demo.match(/<details\b/g)||[]).length>=2,'native FAQs are present');
 });
+test('both demo logos return to the demo home, not the portfolio', () => {
+  const demo=pages[2].html;
+  for (const className of ['wordmark', 'footer-brand']) {
+    assert.match(demo, new RegExp(`<a class="${className}" href="/demos/fern-and-field/"`));
+  }
+});
 test('static output contains no runtime JavaScript or media', () => {
   const outputFiles=files('dist');
   assert.ok(outputFiles.length>=5);

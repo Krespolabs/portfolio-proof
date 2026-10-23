@@ -24,6 +24,10 @@ npm test
 npm run preview
 ```
 
+### Contrast regression
+
+After building, run `npm run test:contrast`. This requires Python's `playwright` package and Chromium at `/usr/bin/chromium`, as does the optional `python3 scripts/check-browser.py` UI check. The contrast runner starts its own temporary loopback-only server. It uses the development-only `axe-core` package plus WCAG sRGB calculations on rendered text at four viewport widths, with FAQs closed/open and links hovered/focused. It also measures visible decorative text and disabled control text voluntarily, checks both logo destinations, and fails on contrast violations or unresolved text-background findings. Axe's arrow-only non-text notices are reported separately and their colours are covered by the computed-style checks. No accessibility test code is included in the built website.
+
 The build generates static files in `dist/`. No backend, database, integrations, analytics, cookies, payments, or contact collection are implemented. No environment variables are required. All CSS and SVG artwork is original to this draft; system fonts avoid remote font requests. The demo enquiry control is deliberately disabled, and there is no enquiry form or submission endpoint.
 
 ## Publication gate
