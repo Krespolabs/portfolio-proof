@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f4f3ed" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">k<span>↗</span></span>KRESPO LABS <span class="brand-divider"> / </span><span class="brand-sub">PORTFOLIO</span></a>
+      <nav aria-label="Main navigation"><a href="/#work">Work</a><a href="/#approach">Approach</a><a href="/#about">About</a></nav>
+      <span class="draft-label"><span aria-hidden="true"></span>Local draft</span>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer wrap"><a class="footer-wordmark" href="/">Krespo Labs<span>↗</span></a><p>Thoughtful interfaces. Evidence before claims.</p><span>Static portfolio · unpublished draft</span></footer>
+  </body>
+</html>
